@@ -11,4 +11,33 @@
 
 Distributed bucketsort with async calls, using the ICE middleware. 
 
+```bash
+sorting
+├── client
+│   ├── src
+│   │   ├── main
+│   │   │   ├── java
+│   │   │   │   └── Client.java
+│   │   │   └── resources
+│   │   │       └── client.config
+├── primaryServer
+│   ├── src
+│   │   ├── main
+│   │   │   ├── java
+│   │   │   │   ├── PrimaryServer.java
+│   │   │   │   ├── SortingQuery.java
+│   │   │   │   └── Bucket.java
+│   │   │   └── resources
+│   │   │       └── server.config
+└── helperServer
+    ├── src
+    │   ├── main
+    │   │   ├── java
+    │   │   │   └── HelperServer.java
+    │   │   └── resources
+    │   │       └── helperserver.config
+
+
+```
+
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">

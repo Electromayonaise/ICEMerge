@@ -7,4 +7,5 @@
 
 rootProject.name = 'ICEBucket'
 include 'server'
-include 'client'
+include 'primaryServer'
+include 'helperServer'
