@@ -12,7 +12,7 @@
 Distributed bucketsort with async calls, using the ICE middleware. 
 
 ```bash
-sorting
+ICEBucket
 ├── client
 │   ├── src
 │   │   ├── main
@@ -37,7 +37,7 @@ sorting
     │   │   └── resources
     │   │       └── helperserver.config
 
-
+This project structure only contains the excecutables
 ```
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
