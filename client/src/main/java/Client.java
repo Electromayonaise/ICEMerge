@@ -1,7 +1,9 @@
+import java.util.Arrays;
 import java.util.Scanner;
 import MathCalc.*;
 import com.zeroc.Ice.*;
 import java.util.concurrent.CompletableFuture;
+
 
 public class Client {
 
@@ -55,6 +57,10 @@ public class Client {
                         break;
                     case 5:
                         exit = true;
+                        break;
+                    case 6:
+                        
+                        System.out.println(Arrays.toString( (int[])calculator.getArr() ));
                         break;
                     default:
                         System.out.println("Invalid choice");

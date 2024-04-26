@@ -41,6 +41,21 @@ public class CalculatorI implements MathCalc.Calculator{
         }
         return a / b;
     }
+    
+    
+    @Override
+    public int[] getArr(Current current) {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        int[] arr=new int[10];
+        for(int i=0;i<10;i++){
+            arr[i]=i;
+        }
+        return arr;
+    }
 
     
 }
