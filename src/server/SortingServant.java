@@ -6,21 +6,53 @@ import java.util.List;
 
 public class SortingServant {
     
+    
     public void mergeSort(int []arr){
         if(arr.length==0|| arr.length==1){
             return;
         }
-        int[][] subarrays=splitInHalf(arr);
+       // int[][] subarrays=splitInHalf(arr);
+        int [][] subarrays=divideArrayIntoKSubarrays(arr, 2);
         mergeSort(subarrays[0]);
         mergeSort(subarrays[1]);
         merge(subarrays,arr);
+    }
+    
+    public int[][] divideArrayIntoKSubarrays(int[] arr, int k){
+        int n=arr.length;
+        int q=n/k; 
+        int r=n%k;
+        int matrix[][]=new int[k][];
+
+        for(int i=0,cont=0;i<k;i++){
+            int subsize;
+            if(r==0){
+                subsize=q;
+            }else{
+                subsize=q+1;
+                r--;
+            }
+            matrix[i]=new int[subsize];
+            fillSubarray(matrix[i], arr, cont);
+            cont+=subsize;
+        }
+        return matrix;
+    }
+    private void fillSubarray(int[] subArray,int[] mainArray,int start){
+        for(int i=0;i<subArray.length;i++){
+            subArray[i]=mainArray[start+i];
+        }
+    }
+    
+    private int[][] divideArrayIntoKSubarraysSpecialCase(int[] arr, int k){
+        return null;
     }
     private int[][] splitInHalf(int []arr){
         int size1,size2;
         if(arr.length%2==0){ //if the length is even both arrays have the same legth
             size1=arr.length/2;
             size2=size1;
-        }else{ //otherwise the length of the first array is greater than the length of the second array
+        }else{ //otherwise, the length of the first array is greater than the length of the second array
             size1=arr.length/2+1;
             size2=size1-1;
         }
@@ -67,6 +99,18 @@ public class SortingServant {
 
         }
     }
+
+    /*private int[][] divideArrayIntoKSubarraysCaseA(int[] arr, int k){
+        int n=arr.length;
+        int subsize=n/k;
+        int matrix[][]=new int[k][subsize];
+        for(int i=0;i<k;i++){
+            for(int j=0;j<subsize;j++){
+                matrix[i][j]=arr[subsize*i+j];
+            }
+        }
+        return matrix;
+    } */
     
     
     
