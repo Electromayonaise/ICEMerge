@@ -59,8 +59,10 @@ public class Client {
                         exit = true;
                         break;
                     case 6:
-                        
-                        System.out.println(Arrays.toString( (int[])calculator.getArr() ));
+                       //  System.out.println(Arrays.toString( (int[])calculator.getArr() ));
+                        CompletableFuture<int[]> answer2= calculator.getArrAsync();
+                        int[] arr=(int[])answer2.get();
+                        System.out.println(Arrays.toString(arr) );
                         break;
                     default:
                         System.out.println("Invalid choice");
