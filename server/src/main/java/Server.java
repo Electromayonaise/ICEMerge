@@ -6,7 +6,7 @@ public class Server {
     
     public static void main(String[] args) {
         try(com.zeroc.Ice.Communicator communicator = com.zeroc.Ice.Util.initialize(args, "server.config")) {
-            captureSecondaryServers(args);
+            
             ObjectAdapter adapter = communicator.createObjectAdapter("services");
             Object object = new CalculatorI();
             adapter.add(object, Util.stringToIdentity("DistributedCalculator"));

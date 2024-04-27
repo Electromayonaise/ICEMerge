@@ -58,6 +58,13 @@ public class CalculatorI implements MathCalc.Calculator{
         return clientArr;
     }
 
+    @Override
+    public void initConnection(String ip, String port, Current current){
+        System.out.println("Secondary server connected ");
+        System.out.println(ip);
+        System.out.println(port);
+    }
+
 
 
     /* SORTING ALGORITHM */
