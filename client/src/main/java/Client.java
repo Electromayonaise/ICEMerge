@@ -61,15 +61,19 @@ public class Client {
                         exit = true;
                         break;
                     case 6:
+                        
                        //  System.out.println(Arrays.toString( (int[])calculator.getArr() ));
                        int[] arr = new Random().ints(100000, 1, 100).toArray();
-
+                       long startTime = System.currentTimeMillis();
                         CompletableFuture<int[]> answer2= calculator.sortAsync(arr);
                         int[] result=(int[])answer2.get();
+                        long endTime = System.currentTimeMillis();
+                        long duration = endTime - startTime;
                         System.out.println("BEFORE");
                         System.out.println(Arrays.toString(arr));
                         System.out.println("AFTER");
                         System.out.println(Arrays.toString(result) );
+                        System.out.println("DURATION IN ML"+ duration);
                         
                         break;
                     default:
