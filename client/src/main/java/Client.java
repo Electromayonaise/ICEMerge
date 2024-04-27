@@ -1,8 +1,10 @@
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 import MathCalc.*;
 import com.zeroc.Ice.*;
 import java.util.concurrent.CompletableFuture;
+import java.util.random.*;
 
 
 public class Client {
@@ -60,9 +62,15 @@ public class Client {
                         break;
                     case 6:
                        //  System.out.println(Arrays.toString( (int[])calculator.getArr() ));
-                        CompletableFuture<int[]> answer2= calculator.getArrAsync();
-                        int[] arr=(int[])answer2.get();
-                        System.out.println(Arrays.toString(arr) );
+                       int[] arr = new Random().ints(10, 1, 100).toArray();
+
+                        CompletableFuture<int[]> answer2= calculator.getArrAsync(arr);
+                        int[] result=(int[])answer2.get();
+                        System.out.println("BEFORE");
+                        System.out.println(Arrays.toString(arr));
+                        System.out.println("AFTER");
+                        System.out.println(Arrays.toString(result) );
+                        
                         break;
                     default:
                         System.out.println("Invalid choice");
