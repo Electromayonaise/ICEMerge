@@ -27,31 +27,22 @@ public class SecondaryServer {
             String port=fields[4];
             System.out.println("IP: "+ ip);
             System.out.println("PORT:"+ port);
-            sendIpAndPortToMainServer(args,ip,port);
+            
+            sendIpAndPortToMainServer(communicator,ip,port);
 
             communicator.waitForShutdown();
             
         }
     }
 
-    public static void sendIpAndPortToMainServer(String[] args,String ip, String port){
-        try(Communicator communicator = Util.initialize(args, "secondaryServer.config")) {
-            // ObjectPrx base = communicator.propertyToProxy("secondaryServer.proxy");
-             ObjectPrx base = communicator.stringToProxy("DistributedCalculator: tcp -h localhost -p 10000");
-              CalculatorPrx calculator = CalculatorPrx.checkedCast(base);
-             if(calculator == null) {
-                   throw new Error("Invalid proxy");
-               }
-               calculator.initConnection(ip,port);
-   
-           }catch(com.zeroc.Ice.Exception e){
-               e.printStackTrace();
-           }
-           try {
-               Thread.sleep(1000);
-           } catch (java.lang.Exception e) {
-               e.printStackTrace();
-           }
+    public static void sendIpAndPortToMainServer(Communicator communicator,String ip, String port){
+        ObjectPrx base = communicator.propertyToProxy("server.proxy");
+        CalculatorPrx calculator = CalculatorPrx.checkedCast(base);
+        if(calculator == null) {
+            throw new Error("Invalid proxy");
+        }
+        calculator.initConnection(ip,port);
+          
        
    }
 

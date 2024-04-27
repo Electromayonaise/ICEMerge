@@ -1,8 +1,18 @@
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
-import com.zeroc.Ice.Current;
+import MathCalc.*;
+import com.zeroc.Ice.*;
+import com.zeroc.Ice.Object;
 
 public class CalculatorI implements MathCalc.Calculator{
+    private Communicator communicator;
+    private List<CalculatorPrx> secondaryServers;
+    public CalculatorI(Communicator communicator){
+        this.communicator=communicator;
+        this.secondaryServers=new LinkedList<>();
+    }
 
     @Override
     public double add (double a, double b, Current current) {
@@ -63,6 +73,14 @@ public class CalculatorI implements MathCalc.Calculator{
         System.out.println("Secondary server connected ");
         System.out.println(ip);
         System.out.println(port);
+
+        ObjectPrx base = communicator.stringToProxy("DistributedCalculator: tcp -h "+ip+" -p "+port);
+
+        CalculatorPrx calculator = CalculatorPrx.checkedCast(base);
+        if(calculator == null) {
+            throw new Error("Invalid proxy");
+        }
+        secondaryServers.add(calculator);
     }
 
 

@@ -8,7 +8,9 @@ public class Server {
         try(com.zeroc.Ice.Communicator communicator = com.zeroc.Ice.Util.initialize(args, "server.config")) {
             
             ObjectAdapter adapter = communicator.createObjectAdapter("services");
-            Object object = new CalculatorI();
+
+            Object object = new CalculatorI(communicator);
+            
             adapter.add(object, Util.stringToIdentity("DistributedCalculator"));
             adapter.activate();
             communicator.waitForShutdown();
