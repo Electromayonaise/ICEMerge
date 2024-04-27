@@ -28,6 +28,7 @@ public class Client {
                 System.out.println("3. Multiply");
                 System.out.println("4. Divide");
                 System.out.println("5. Exit");
+                System.out.println("6. Sort a ran array of a given size");
                 int choice = scanner.nextInt();
                 double a, b;
                 switch(choice) {
@@ -61,9 +62,10 @@ public class Client {
                         exit = true;
                         break;
                     case 6:
-                        
+                        System.out.println("Enter the size");
+                        int size=scanner.nextInt();
                        //  System.out.println(Arrays.toString( (int[])calculator.getArr() ));
-                       int[] arr = new Random().ints(100000, 1, 100).toArray();
+                       int[] arr = new Random().ints(size, 1, 100).toArray();
                        long startTime = System.currentTimeMillis();
                         CompletableFuture<int[]> answer2= calculator.sortAsync(arr);
                         int[] result=(int[])answer2.get();
