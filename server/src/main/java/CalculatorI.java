@@ -46,12 +46,13 @@ public class CalculatorI implements MathCalc.Calculator{
     
     
     @Override
-    public int[] getArr(int[] clientArr,Current current) {
-        try {
+    public int[] sort(int[] clientArr,Current current) {
+         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        
         
         mergeSort(clientArr);
         return clientArr;
