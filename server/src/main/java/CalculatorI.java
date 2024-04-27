@@ -1,6 +1,8 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import MathCalc.*;
 import com.zeroc.Ice.*;
@@ -57,14 +59,24 @@ public class CalculatorI implements MathCalc.Calculator{
     
     @Override
     public int[] sort(int[] clientArr,Current current) {
-         try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        int[][] subarrays=divideArrayIntoKSubarrays(clientArr, secondaryServers.size());
+
+        List<CompletableFuture<int[]>> completablesFuture=new ArrayList<>();
+        for(int i=0;i<secondaryServers.size();i++){
+            CompletableFuture<int[]> completableFuture= (secondaryServers.get(i)).sortAsync(subarrays[i]);
+            completablesFuture.add(completableFuture);
         }
-        
-        
-        mergeSort(clientArr);
+        for(int i=0;i<secondaryServers.size();i++){
+            try {
+                int[] result=(int[]) ((completablesFuture.get(i)).get());
+                subarrays[i]=result;
+                
+            } catch (java.lang.Exception e) {
+                // TODO: handle exception
+            }
+            
+        }
+        merge(subarrays, clientArr);
         return clientArr;
     }
 

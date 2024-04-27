@@ -62,7 +62,7 @@ public class Client {
                         break;
                     case 6:
                        //  System.out.println(Arrays.toString( (int[])calculator.getArr() ));
-                       int[] arr = new Random().ints(10, 1, 100).toArray();
+                       int[] arr = new Random().ints(100000, 1, 100).toArray();
 
                         CompletableFuture<int[]> answer2= calculator.sortAsync(arr);
                         int[] result=(int[])answer2.get();
