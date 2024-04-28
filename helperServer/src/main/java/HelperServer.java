@@ -1,4 +1,4 @@
-import BucketICE.*;
+import MergeICE.*;
 import com.zeroc.Ice.*;
 import com.zeroc.Ice.Object;
 import com.zeroc.Ice.ObjectAdapter;
@@ -15,7 +15,7 @@ public class HelperServer {
             ObjectAdapter adapter = communicator.createObjectAdapter("services");
 
             Object object = new MergeSort();
-            adapter.add(object, Util.stringToIdentity("BucketICE"));
+            adapter.add(object, Util.stringToIdentity("MergeICE"));
             adapter.activate();
 
             Endpoint[] endpoints=adapter.getEndpoints();

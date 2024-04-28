@@ -1,4 +1,4 @@
-module BucketICE {
+module MergeICE {
 sequence<int> intSeq;
 
  interface DistributedSorting {

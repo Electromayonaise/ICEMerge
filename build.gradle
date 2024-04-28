@@ -19,7 +19,7 @@ subprojects {
  //
  slice {
  java {
- files = [file("../BucketICE.ice")]
+ files = [file("../MergeICE.ice")]
  }
  }
  //

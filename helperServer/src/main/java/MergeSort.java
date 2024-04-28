@@ -1,8 +1,8 @@
 import java.util.HashMap;
-import BucketICE.*;
+import MergeICE.*;
 import com.zeroc.Ice.Current;
 
-public class MergeSort implements BucketICE.DistributedSorting {
+public class MergeSort implements MergeICE.DistributedSorting {
 
 
     

@@ -1,4 +1,4 @@
-import BucketICE.*;
+import MergeICE.*;
 import com.zeroc.Ice.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;

@@ -1,4 +1,4 @@
-import BucketICE.*;
+import MergeICE.*;
 import com.zeroc.Ice.*;
 import com.zeroc.Ice.Object;
 
@@ -9,9 +9,9 @@ public class PrimaryServer {
             
             ObjectAdapter adapter = communicator.createObjectAdapter("services");
 
-            Object object = new Bucket(communicator);
+            Object object = new Merge(communicator);
             
-            adapter.add(object, Util.stringToIdentity("BucketICE"));
+            adapter.add(object, Util.stringToIdentity("MergeICE"));
             adapter.activate();
             communicator.waitForShutdown();
         }

@@ -1,10 +1,10 @@
 <state>
-  <timestamp value='1714325409534' />
+  <timestamp value='1714327415248' />
   <sourceSet name='default'>
-    <source name='C:\Code\Repositories\ICEBucket\BucketICE.ice'>
-      <file name='C:\Code\Repositories\ICEBucket\primaryServer\build\generated-src\BucketICE\DistributedSorting.java' />
-      <file name='C:\Code\Repositories\ICEBucket\primaryServer\build\generated-src\BucketICE\DistributedSortingPrx.java' />
-      <file name='C:\Code\Repositories\ICEBucket\primaryServer\build\generated-src\BucketICE\_DistributedSortingPrxI.java' />
+    <source name='C:\Code\Repositories\ICEBucket\MergeICE.ice'>
+      <file name='C:\Code\Repositories\ICEBucket\primaryServer\build\generated-src\MergeICE\DistributedSorting.java' />
+      <file name='C:\Code\Repositories\ICEBucket\primaryServer\build\generated-src\MergeICE\DistributedSortingPrx.java' />
+      <file name='C:\Code\Repositories\ICEBucket\primaryServer\build\generated-src\MergeICE\_DistributedSortingPrxI.java' />
     </source>
     <arg value='C:\Program Files\ZeroC\Ice-3.7.10\\bin\slice2java.exe' />
     <arg value='-IC:\Program Files\ZeroC\Ice-3.7.10\\slice' />

@@ -3,16 +3,15 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-
-import BucketICE.*;
+import MergeICE.*;
 import com.zeroc.Ice.*;
 import com.zeroc.Ice.Object;
 
-public class Bucket implements BucketICE.DistributedSorting {
+public class Merge implements MergeICE.DistributedSorting {
     private Communicator communicator;
     private List<DistributedSortingPrx> helperServers;
 
-    public Bucket(Communicator communicator){
+    public Merge(Communicator communicator){
         this.communicator=communicator;
         this.helperServers=new LinkedList<>();
     }
@@ -47,7 +46,7 @@ public class Bucket implements BucketICE.DistributedSorting {
         System.out.println(ip);
         System.out.println(port);
 
-        ObjectPrx base = communicator.stringToProxy("BucketICE: tcp -h "+ip+" -p "+port);
+        ObjectPrx base = communicator.stringToProxy("MergeICE: tcp -h "+ip+" -p "+port);
 
         DistributedSortingPrx sorter = DistributedSortingPrx.checkedCast(base);
         if(sorter == null) {
