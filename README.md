@@ -25,15 +25,15 @@ ICEBucket
 │   │   ├── main
 │   │   │   ├── java
 │   │   │   │   ├── PrimaryServer.java
-│   │   │   │   ├── SortingQuery.java
 │   │   │   │   └── Bucket.java
 │   │   │   └── resources
-│   │   │       └── server.config
+│   │   │       └── primaryServer.config
 └── helperServer
     ├── src
     │   ├── main
     │   │   ├── java
     │   │   │   └── HelperServer.java
+    │   │   │   └── MergeSort.java
     │   │   └── resources
     │   │       └── helperserver.config
 
