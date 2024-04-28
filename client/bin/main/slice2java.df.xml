@@ -1,0 +1,12 @@
+<state>
+  <timestamp value='1714325409299' />
+  <sourceSet name='default'>
+    <source name='C:\Code\Repositories\ICEBucket\BucketICE.ice'>
+      <file name='C:\Code\Repositories\ICEBucket\client\build\generated-src\BucketICE\DistributedSorting.java' />
+      <file name='C:\Code\Repositories\ICEBucket\client\build\generated-src\BucketICE\DistributedSortingPrx.java' />
+      <file name='C:\Code\Repositories\ICEBucket\client\build\generated-src\BucketICE\_DistributedSortingPrxI.java' />
+    </source>
+    <arg value='C:\Program Files\ZeroC\Ice-3.7.10\\bin\slice2java.exe' />
+    <arg value='-IC:\Program Files\ZeroC\Ice-3.7.10\\slice' />
+  </sourceSet>
+</state>
