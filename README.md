@@ -40,7 +40,7 @@ ICEBucket
 This project structure only contains the excecutables
 ```
 
-## How to run the project
+## *How to run the project*
 
 ### 1. Clone the repository
 
@@ -53,15 +53,33 @@ git clone https://github.com/Electromayonaise/ICEBucket.git
 To do so, simply click on the `compile.bat` file. This will compile the project and generate the .jar files, which are the executables.
 When running the compile.bat file, a terminal will open for a few seconds, and then close. This is normal. 
 
+<div align="center">
+  <img  src="https://github.com/Electromayonaise/ICEBucket/blob/main/doc/InstructionAssets/compile.png"
+       alt="compile" /></a>
+</div>
+
 ### 3. Run the project
 
 To run the project, you will need to run the executables in the following order:
 
 1. Run the primary server by clicking on the `executePrimaryServer.bat` file. This will open a terminal that will show no output, but it is running.
+<div align="center">
+  <img  src="https://github.com/Electromayonaise/ICEBucket/blob/main/doc/InstructionAssets/executePrimaryServer.png"
+       alt="executePrimaryServer" /></a>
+</div>
 
-2. Run the helper server by clicking on the `executeHelperServer.bat` file. This will open a terminal that will say "secondary server init", plus the IP and Port of the server. The primary server will also show a message saying that the helper server has connected, and the IP and Port of the helper server.
 
-3. Run the client by clicking on the `executeClient.bat` file. This will open a terminal that will show the output of the client.
+3. Run the helper server by clicking on the `executeHelperServer.bat` file. This will open a terminal that will say "secondary server init", plus the IP and Port of the server. The primary server will also show a message saying that the helper server has connected, and the IP and Port of the helper server.
+<div align="center">
+  <img  src="https://github.com/Electromayonaise/ICEBucket/blob/main/doc/InstructionAssets/executeHelperServer.png"
+       alt="executeHelperServer" /></a>
+</div>
+
+4. Run the client by clicking on the `executeClient.bat` file. This will open a terminal that will show the output of the client.
+<div align="center">
+  <img  src="https://github.com/Electromayonaise/ICEBucket/blob/main/doc/InstructionAssets/executeClient.png"
+       alt="executeClient" /></a>
+</div>
 
 ### 4. Enjoy the project
 
