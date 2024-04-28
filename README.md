@@ -45,7 +45,7 @@ This project structure only contains the excecutables
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Electromayonaise/ICEBucket.git
+git clone https://github.com/Electromayonaise/ICEMerge.git
 ```
 
 ### 2. Compile the project
