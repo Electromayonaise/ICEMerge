@@ -1,53 +1,47 @@
-import sorting.*;
-import Ice.*;
-import java.util.List;
+import BucketICE.*;
+import com.zeroc.Ice.*;
+import com.zeroc.Ice.Object;
+import com.zeroc.Ice.ObjectAdapter;
 
-public class HelperServer implements sorting.HelperServer {
-
-    @Override
-    public List<T> mergeSort(List<T> data, Comparator<T> comparator) {
-        if (data.size() <= 1) {
-            return data;
-        }
-
-        int middle = data.size() / 2;
-        List<T> left = data.subList(0, middle);
-        List<T> right = data.subList(middle, data.size());
-
-        left = mergeSort(left, comparator);
-        right = mergeSort(right, comparator);
-
-        return merge(left, right, comparator);
-    }
-
-    private List<T> merge(List<T> left, List<T> right, Comparator<T> comparator) {
-        List<T> merged = new ArrayList<>();
-        int leftIndex = 0;
-        int rightIndex = 0;
-
-        while (leftIndex < left.size() && rightIndex < right.size()) {
-            if (comparator.compare(left.get(leftIndex), right.get(rightIndex)) <= 0) {
-                merged.add(left.get(leftIndex));
-                leftIndex++;
-            } else {
-                merged.add(right.get(rightIndex));
-                rightIndex++;
-            }
-        }
-
-        while (leftIndex < left.size()) {
-            merged.add(left.get(leftIndex));
-            leftIndex++;
-        }
-
-        while (rightIndex < right.size()) {
-            merged.add(right.get(rightIndex));
-            rightIndex++;
-        }
-
-        return merged;
-    }
+public class HelperServer {
     
+    public static void main(String[] args) {
 
+        try(com.zeroc.Ice.Communicator communicator = com.zeroc.Ice.Util.initialize(args, "helperServer.config")) {
+
+
+            System.out.println("Secondary server init");
+            
+            ObjectAdapter adapter = communicator.createObjectAdapter("services");
+
+            Object object = new MergeSort();
+            adapter.add(object, Util.stringToIdentity("BucketICE"));
+            adapter.activate();
+
+            Endpoint[] endpoints=adapter.getEndpoints();
+            String inf=endpoints[0]._toString();
+            String [] fields=inf.split(" ");
+            String ip=fields[2];
+            String port=fields[4];
+            System.out.println("IP: "+ ip);
+            System.out.println("PORT:"+ port);
+            
+            sendIpAndPortToMainServer(communicator,ip,port);
+
+            communicator.waitForShutdown();
+            
+        }
+    }
+
+    public static void sendIpAndPortToMainServer(Communicator communicator,String ip, String port){
+        ObjectPrx base = communicator.propertyToProxy("server.proxy");
+        DistributedSortingPrx sorter = DistributedSortingPrx.checkedCast(base);
+        if(sorter == null) {
+            throw new Error("Invalid proxy");
+        }
+        sorter.initConnection(ip,port);
+          
+       
+   }
 
 }

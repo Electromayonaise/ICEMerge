@@ -1,60 +1,28 @@
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-
 import BucketICE.*;
-import com.zeroc.Ice.*;
-import com.zeroc.Ice.Object;
+import com.zeroc.Ice.Current;
 
-public class Bucket implements BucketICE.DistributedSorting {
-    private Communicator communicator;
-    private List<DistributedSortingPrx> helperServers;
+public class MergeSort implements BucketICE.DistributedSorting {
 
-    public Bucket(Communicator communicator){
-        this.communicator=communicator;
-        this.helperServers=new LinkedList<>();
-    }
-    
+
     
     @Override
     public int[] sort(int[] clientArr,Current current) {
-        int[][] subarrays=divideArrayIntoKSubarrays(clientArr, helperServers.size());
-
-        List<CompletableFuture<int[]>> completablesFuture=new ArrayList<>();
-        for(int i=0;i<helperServers.size();i++){
-            CompletableFuture<int[]> completableFuture= (helperServers.get(i)).sortAsync(subarrays[i]);
-            completablesFuture.add(completableFuture);
-        }
-        for(int i=0;i<helperServers.size();i++){
-            try {
-                int[] result=(int[]) ((completablesFuture.get(i)).get());
-                subarrays[i]=result;
-                
-            } catch (java.lang.Exception e) {
-                // TODO: handle exception
-            }
-            
-        }
-        merge(subarrays, clientArr);
+         
+        
+        
+        mergeSort(clientArr);
         return clientArr;
     }
 
     @Override
     public void initConnection(String ip, String port, Current current){
-        System.out.println("Helper server connected ");
+        System.out.println("Secondary server connected ");
         System.out.println(ip);
         System.out.println(port);
-
-        ObjectPrx base = communicator.stringToProxy("BucketICE: tcp -h "+ip+" -p "+port);
-
-        DistributedSortingPrx sorter = DistributedSortingPrx.checkedCast(base);
-        if(sorter == null) {
-            throw new Error("Invalid proxy");
-        }
-        helperServers.add(sorter);
     }
+
+
 
     /* SORTING ALGORITHM */
 
