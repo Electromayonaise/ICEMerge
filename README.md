@@ -13,6 +13,9 @@ Distributed merge sort with async calls, using the ICE middleware.
 
 ```bash
 ICEBucket
+├── doc
+│   ├── ICEMergePseudoClass.png
+│   ├── Informe.md
 ├── client
 │   ├── src
 │   │   ├── main
@@ -37,7 +40,7 @@ ICEBucket
     │   │   └── resources
     │   │       └── helperserver.config
 
-This project structure only contains the excecutables
+This project structure only contains the excecutables and documentation 
 ```
 
 ## *How to run the project*
