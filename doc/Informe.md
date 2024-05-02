@@ -79,6 +79,8 @@ To test the performance of the algorithm, we tested the algorithm with four diff
 
 > It should be noted that these tests were performed on a computer with a "AMD A6-5200 APU with Radeon(TM) HD Graphics 2.00 GHz" processor and 4 GB DDR3 RAM.
 
+> All this tests were made with 5 helper servers. Additionally, all the test files are located in SampleFiles folder.
+
 ## **Conclusion**
 
 The implementation of a distributed sorting system using ICE offers an efficient and scalable solution for sorting large data sets. The Merge Sort algorithm implemented with distribution on “k” servers provides agile performance in distributed environments. The distribution strategy based on Merge Sort significantly reduces time complexity by distributing the workload across multiple secondary servers, allowing for faster and more efficient sorting of large datasets. Overall, the combination of distribution strategy and implementation design using ICE provides a robust and flexible solution to the distributed sorting problem.
