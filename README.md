@@ -91,3 +91,5 @@ Please do note that right now, the project is configured to sort integers. If yo
 It is also configured for everything to run in localhost, so you will need to modify the configuration files if you want to run the project in different machines, which will be relatively strightforward thanks to ICE, you will only need to `change the IP addresses in the configuration files`.
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+> Important: You can find the report in doc/Report.md
